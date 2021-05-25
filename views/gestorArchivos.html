@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"> 
+    <!-- Librerias CSS -->
+    <link rel="stylesheet" type="text/css" href="../public/css/estilos.css">
+    <link href="../node_modules/material-icons/iconfont/material-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/dist/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/responsive.dataTables.css">
+
+
+    
+    <!-- Librerias CSS -->
+    <title>RapiDoc</title>
+  </head>
+<body>
+
+  <!-- Header -->
+  <header> 
+    <!-- NAV -->
+    <nav>
+      <div class="nav-wrapper blue lighten-2">
+       <a id="logoUrl" href="#" class="brand-logo"><img class="logoHeader" src="../public/img/logo.png"></a> 
+       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> 
+       <ul id="nav" class="right hide-on-med-and-down"></ul>
+      </div>
+    </nav>
+    <!-- NAV -->
+    <!-- NAV Mobile -->
+    <ul class="sidenav" id="mobile-demo"></ul>
+    <!-- NAV Mobile -->
+  </header>
+  <!-- Header -->
+  
+    <!-- Contenido Principal -->
+     <main>       
+       <div class="separadorMain">  
+        <div class="row">            
+               
+        <!-- Contenido lateral de los directorios -->
+          <div class="col s3">            
+            <div class="listadoDirectorios">
+             <ul class="collection with-header" id="contenedorDirectorios">
+              <li class="collection-header blue lighten-2 white-text"><h5>Directorios</h5></li>
+             </ul>        
+            </div>
+          </div>
+        <!-- Contenido lateral de los directorios -->   
+
+        <!-- Contenido del Gestor de Archivos -->
+        <div class="col s9">          
+          <div class="listadoArchivos">   
+            <ul class="collection with-header" id="contenedorDirectorios">
+              <li class="collection-header blue lighten-2 white-text">               
+               <h5>Archivos <span id="nombreDirectorio"></span></h5>                
+              </li>
+              <li class="collection-item">
+                <!-- Inputs de Busqueda -->
+                <div class="row">
+                  <!-- Buscar por Persona -->
+                  <div class="input-field col s6">
+                   <i class="material-icons prefix">person</i>
+                   <input type="text" placeholder="Persona a Buscar.." class="column_filterPersona form-control input-lg" id="col0_filter">  
+                   <label>Filtrar por Persona</label>                    
+                  </div>
+                  <!-- Buscar por Persona -->
+                  <!-- Buscar por Tipo de Archivo -->
+                  <div class="input-field col s6">
+                   <i class="material-icons prefix">archive</i>
+                   <input type="text" placeholder="Documento a Buscar.." class="column_filterArchivo form-control input-lg" id="col1_filter"> 
+                   <label>Filtrar por Tipo de Documento</label>                       
+                  </div>
+                  <!-- Buscar por Tipo de Archivo -->
+                </div>
+                <!-- Inputs de Busqueda -->
+              </li>                     
+              <div id="contenedorArchivos" class="grey lighten-4"></div>
+            </ul>               
+          </div>
+        </div>
+        <!-- Contenido del Gestor de Archivos -->
+        
+        </div>
+        </div>
+    </main>
+    <!-- Contenido Principal-->
+
+    <!-- Boton Flotante -->
+    <div class="fixed-action-btn">
+      <a href="gestorArchivos.html" title="Restablecer" class="btn-floating btn-large blue">
+      <i class="large material-icons">sync</i>
+      </a>    
+     </div>
+    <!-- Boton Flotante -->
+    
+    <!-- Footer -->
+    <footer class="page-footer blue lighten-2">
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <h5 class="white-text">Rapidoc</h5>
+              <p class="grey-text text-lighten-4">Creación y Gestión de documentos de forma rápida y sencilla en formato digital.</p>
+            </div>            
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 RapiDoc 
+          <a class="grey-text text-lighten-4 right" href="#!">Mas Informacion</a>
+          </div>
+        </div>
+    </footer>
+    <!-- Footer-->
+  
+   <!-- Librerias JavaScripts -->
+   <script src="../main.js"></script>
+   <script src="../public/js/gestorArchivos.js"></script>
+   <script src="../public/js/generarMenuLateral.js"></script>
+   <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+   <script type="text/javascript" src="../public/js/jquery.min.js"></script>
+   <script src="../public/js/datatables.min.js"></script>
+   <script src="../public/js/dataTables.responsive.js"></script>
+   <script type='text/javascript'>
+      function filterColumnPersona ( i ) {
+       $('#tablaElementos').DataTable().column( i ).search(
+       $('#col0_filter').val()).draw();
+      }
+
+      function filterColumnArchivo ( i ) {
+       $('#tablaElementos').DataTable().column( i ).search(
+       $('#col1_filter').val()).draw();
+      }
+
+      $(document).ready(function() {
+        $('#tablaElementos').DataTable(  { 
+         dom: '<t>',
+         order: [[ 1, "desc" ]],
+         infoEmpty: "No se encontraron archivos asociados a la busqueda",      
+         oLanguage: {
+           sZeroRecords: "No hay archivos para mostrar",
+           sEmptyTable: "No hay archivos"
+          },
+          //Activo las busquedas en las columnas #1 #2 #3 ...#etc
+          aoColumns: [{ "bSearchable": true},null,null]        
+        }        
+      );           
+  
+      $("div.toolbar").html('');                 
+        $('input.column_filterPersona').on( 'keyup click', function () {
+          filterColumnPersona(0);                                          
+        });  
+        $('input.column_filterArchivo').on( 'keyup click', function () {
+          filterColumnArchivo(1);                                          
+        });               
+      });             
+    </script>    
+   <!-- Librerias JavaScripts -->
+
+
+  </body>
+</html>

@@ -1,0 +1,101 @@
+body {
+ display: flex;
+ min-height: 100vh;
+ flex-direction: column;
+}
+
+main {
+ padding-top: 1%;
+ flex: 1 0 auto;
+ background-image: url("../img/texturaContenedor.jpg");
+}
+
+.separadorMain {
+ margin-top: 2%;
+}
+.logoHeader {
+ padding-left: 20px;
+ height:100px;
+}
+
+.imagenVista {
+ height: 5%;
+ width: 20%;
+}
+
+.centrado{
+ margin-left: 20%;
+ margin-right: 20%;
+}
+
+.titulo {
+ border-bottom: 3px solid #0288d1;
+}
+
+.textoBlockquote {
+ border-color:#0288d1;
+ background-color:#eceff1;
+ text-align: justify;
+}
+
+.documentoVistaPrevia {
+ max-height: max-content;
+ max-width: max-content;
+ #height: auto;
+ 
+ width: 100%;
+}
+
+.oculto {
+ display:none
+}
+
+.listadoDirectorios {
+ #height:85vh;
+ overflow-y: auto;
+}
+   
+.listadoArchivos {
+ #height:85vh;
+ overflow-y: auto;
+}
+   
+.imagenIconoPdf {
+ margin-left:10px;
+ padding-top:5px;
+ height:30px;
+ width:30px;
+}
+
+.cajaIframe {
+ height:80vh;
+ width: auto;
+}
+
+/* label color */
+.input-field label {
+    color: #000;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #000;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }

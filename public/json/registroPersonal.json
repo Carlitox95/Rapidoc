@@ -1,0 +1,15 @@
+[
+    {
+        "apellido": "Testester",
+        "nombre": "Usuario",
+        "dni": "12345678",
+        "nroTramite": "",
+        "cuit": "00-12345678-9",
+        "telefono": "",
+        "mail": "",
+        "direccion": "",
+        "apellidoEmpleador": "",
+        "nombreEmpleador": "",
+        "cuitEmpleador": "00-12345678-9"
+    }
+]

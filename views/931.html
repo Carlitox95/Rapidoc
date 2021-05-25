@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"> 
+    <!-- Librerias CSS -->
+    <link rel="stylesheet" type="text/css" href="../public/css/estilos.css">
+    <link href="../node_modules/material-icons/iconfont/material-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/dist/css/materialize.css">
+    <!-- Librerias CSS -->
+    <title>RapiDoc</title>
+  </head>
+<body>
+
+  <!-- Header -->
+  <header> 
+    <!-- NAV -->
+    <nav>
+      <div class="nav-wrapper blue lighten-2">
+       <a id="logoUrl" href="#" class="brand-logo"><img class="logoHeader" src="../public/img/logo.png"></a> 
+       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> 
+       <ul id="nav" class="right hide-on-med-and-down"></ul>
+      </div>
+    </nav>
+    <!-- NAV -->
+    <!-- NAV Mobile -->
+    <ul class="sidenav" id="mobile-demo"></ul>
+    <!-- NAV Mobile -->
+   </header>
+  <!-- Header -->
+  
+    <!-- Contenido Principal -->
+    <main>
+      <center><h4 class="titulo">Formulario AFIP 931</h4></center>
+      <div class="separadorMain">    
+        <div class="row">      
+          <!-- Pantalla de Carga -->
+          <div class="col s12 oculto" id="pantallaCarga">
+           <center><p class="mensajeCarga">Generando Documento... Por favor Espere!</p>
+           <div class="progress"><div class="indeterminate"></div></div>
+          </div>
+          <!-- Pantalla de Carga -->
+          
+         
+          <!-- Contenedor Carga Previa Datos -->
+          <div class="col s3">            
+            <div class="listadoPersonas">
+              <ul class="collection with-header" id="listadoPersonas">
+                <li class="collection-header blue lighten-2 white-text"><h5>Trabajadores</h5></li>
+              </ul>  
+            </div> 
+          </div>
+          <!-- Contenedor Carga Previa Datos -->
+
+          
+        <div class="col s6">
+           <!-- Contenedor Datos Personales --> 
+           <p class="titulo">Datos Personales</p>
+            <div class="input-field col s4">
+             <input placeholder="Apellido del Trabajador" id="apellidoTrabajador" type="text" class="validate">
+             <label class="active" for="apellidoTrabajador">Apellido </label>
+            </div>
+
+            <div class="input-field col s4">
+             <input placeholder="Nombre del Trabajador" id="nombreTrabajador" type="text" class="validate">
+             <label class="active" for="nombreTrabajador">Nombre Trabajador</label>
+            </div>
+
+            <div class="input-field col s4">
+             <input placeholder="Ingrese Cuit Trabajador" id="cuitPersona" type="text" class="validate">
+             <label class="active" for="cuitTrabajador">Cuit Trabajador</label>
+            </div>       
+            <!-- Contenedor Datos Personales --> 
+            <!-- Contenedor Datos COMPLETAR-->
+            <p class="titulo">Detalles del Pago</p>
+            <div class="input-field col s4">
+             <input placeholder="Numero del Verificador" id="nroVerificador" type="text" class="validate">
+             <label class="active" for="nroVerificador">Numero Verificador</label>
+            </div>
+            
+            <div class="input-field col s4">
+             <input placeholder="Aportes Seguridad Social" id="aportesSSPagar" type="text" class="validate">
+             <label class="active" for="aportesSSPagar">Aportes Seguridad Social</label>
+            </div>
+            
+            <div class="input-field col s4">
+             <input placeholder="Contribuciones Seguridad Social" id="contribucionesSSPagar" type="text" class="validate">
+             <label class="active" for="contribucionesSSPagar">Contribuciones Seguridad Social</label>
+            </div>
+            
+            <div class="input-field col s4">
+             <input placeholder="Aporte Obras Sociales" id="aporteOSPagar" type="text" class="validate">
+             <label class="active" for="aporteOSPagar">Aporte Obras Sociales</label>
+            </div>
+
+            <div class="input-field col s4">
+             <input placeholder="Contribuciones Obras Sociales" id="contribucionesOSPagar" type="text" class="validate">
+             <label class="active" for="contribucionesOSPagar">Contribuciones Obras Sociales</label>
+            </div>
+
+            <div class="input-field col s4">
+             <input placeholder="Cajas de Alimentos a Pagar" id="valesAlimentariosCajasAlimentos" type="text" class="validate">
+             <label class="active" for="valesAlimentariosCajasAlimentos ">Cajas de Alimentos a Pagar</label>
+            </div>
+
+            <div class="input-field col s12">
+             <input placeholder="Ley Riesgos de Trabajo a Pagar" id="leyRiesgosTrabajo" type="text" class="validate">
+             <label class="active" for="leyRiesgosTrabajo">Ley Riesgos de Trabajo a Pagar</label>
+            </div>
+            <!-- Contenedor Datos COMPLETAR-->
+            <a class="waves-effect waves-light btn light-blue darken-2" href="#" onclick="generarPDF('unico');">Generar</a>    
+        </div>  
+          
+
+          
+    
+
+
+          
+          <!-- Contenedor Contenedor Formularios -->
+          <div class="col s3">
+           <p class="titulo">Datos del Periodo a Pagar</p>
+            <div class="input-field col s6">    
+              <select class="browser-default" id="mesPeriodo">
+               <option value="default" disabled selected>Mes del Periodo</option>
+               <option value="01">Enero</option>
+               <option value="02">Febrero</option>
+               <option value="03">Marzo</option>
+               <option value="04">Abril</option>
+               <option value="05">Mayo</option>
+               <option value="06">Junio</option>
+               <option value="07">Julio</option>
+               <option value="08">Agosto</option>
+               <option value="09">Septiembre</option>
+               <option value="10">Octubre</option>
+               <option value="11">Noviembre</option>
+               <option value="12">Diciembre</option>
+              </select>
+            </div>
+            <div class="input-field col s6">
+             <input placeholder="Ingresar Año" id="anioPeriodo" type="text" class="validate">
+             <label class="active" for="first_name2">Año del Periodo</label>
+            </div>           
+          </div> 
+           <!-- Contenedor Contenedor Formularios -->
+    
+      </div>
+      </div>   
+    </main>
+    <!-- Contenido Principal-->
+
+    <!-- Boton Flotante -->
+    <div class="fixed-action-btn">
+      <a href="f575b.html" title="Restablecer" class="btn-floating btn-large blue">
+      <i class="large material-icons">sync</i>
+      </a>    
+     </div>
+    <!-- Boton Flotante -->  
+    
+    <!-- Footer -->
+    <footer class="page-footer blue lighten-2">
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <h5 class="white-text">Rapidoc</h5>
+              <p class="grey-text text-lighten-4">Creación y Gestión de documentos de forma rápida y sencilla en formato digital.</p>
+            </div>            
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 RapiDoc 
+          <a class="grey-text text-lighten-4 right" href="#!">Mas Informacion</a>
+          </div>
+        </div>
+    </footer>
+    <!-- Footer-->
+  
+   <!-- Librerias JavaScripts -->
+   <script src="../main.js"></script>
+   <script src="../public/js/f931.js"></script>
+   <script src="../public/js/generarMenuLateral.js"></script>   
+   <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+   <!-- Librerias JavaScripts -->
+
+
+  </body>
+</html>
