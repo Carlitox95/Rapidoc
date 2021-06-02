@@ -12,6 +12,14 @@ function crearMenuPrincipal() {
  //Creo el enlace correcto para el logo
  document.getElementById("logoUrl").href="home.html";
 
+ //Creo el enlace para acceder a la Home
+ var liHome=document.createElement("li");
+ aliHome=document.createElement("a");
+ aliHome.innerHTML="<i class='material-icons left'>home</i> Home";
+ aliHome.setAttribute("href","home.html");
+ liHome.appendChild(aliHome);
+ //Termino el enlace
+
  //Creo el enlace para acceder a los formularios
  var liFormularios=document.createElement("li");
  var aliFormularios=document.createElement("a"); 
@@ -53,6 +61,7 @@ function crearMenuPrincipal() {
  //Termino el enlace
 
  //Inserto los elementos
+ contenedorMenu.appendChild(liHome);
  contenedorMenu.appendChild(liFormularios);
  contenedorMenu.appendChild(liGestorArchivos);
  contenedorMenu.appendChild(liDatosApp);
@@ -66,6 +75,14 @@ function crearMenuPrincipalMobile() {
  
  //Creo el enlace correcto para el logo
  document.getElementById("logoUrl").href="home.html";
+
+ //Creo el enlace para acceder a la Home
+ var liHome=document.createElement("li");
+ aliHome=document.createElement("a");
+ aliHome.innerHTML="<i class='material-icons left'>home</i> Home";
+ aliHome.setAttribute("href","home.html");
+ liHome.appendChild(aliHome);
+ //Termino el enlace
    
  //Creo el enlace para acceder a los formularios
  var liFormularios=document.createElement("li");
@@ -108,6 +125,7 @@ function crearMenuPrincipalMobile() {
  //Termino el enlace
    
  //Inserto los elementos en el nav mobile
+ contenedorMenuMobile.appendChild(liHome);
  contenedorMenuMobile.appendChild(liFormularios);
  contenedorMenuMobile.appendChild(liGestorArchivos);
  contenedorMenuMobile.appendChild(liDatosApp);

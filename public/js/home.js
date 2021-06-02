@@ -3,6 +3,7 @@ const directorioRaiz=process.env['directorioDocumentos'];
 const Chart=require("chart.js");
 const fs = require('fs');
 var fsUtils = require("nodejs-fs-utils");
+var moment = require('moment');
 
 //Almaceno los tamaños de los directorios
 const FACTOR_CONVERTION_TO_MB = 0.000001;
@@ -26,6 +27,89 @@ function formatearFechas(unFecha) {
  var dia=arrayfecha[2];
  let fechaConFormato = new Date(anio+"/"+mes+"/"+dia);
  return fechaConFormato; 
+}
+
+//Funcion que me retorna un array con todos los dias del mes (o eso deberia)
+function obtenerDiasDelMesActual() {
+ //Obtengo al fecha de hoy con Moment JS (sera el ultimo dia de mi informe)
+ var fechaFin = moment(new Date());
+ //Obtengo el dia exacto pero 1 mes atras...
+ var fechaInicio = moment(new Date()).subtract(1, 'months'); 
+ //Calculo la diferencia de dias entre ambas fechas
+ var duration = moment.duration(fechaInicio.diff(fechaFin));
+ var days = parseInt(Math.abs(duration.asDays()));
+ 
+ //Defino mi array de fechas
+ let arrayFechasMes=[];
+
+   //Determino todas las fechas
+    for (let i=0; i <= days; i++) { 
+     var indiceDia=moment(fechaInicio).add(i, 'days').format('DD/MM/YYYY');
+     arrayFechasMes.push(indiceDia);
+    }
+ return arrayFechasMes;
+}
+
+//Funcion que me retorna el dia y la cantidad de archivos creados en el mes corriente
+function obtenerArchivosCreadosEnMes(arrayDiasDelMes,directorio) {
+ //Defino un array archivos y su fecha de creacion
+ let arrayArchivosXFecha=[]; 
+ //Defino mi array que usare como contador de cada dia
+ let arrayContadorArchivosXDia=[];
+
+ //Obtengo todos los sub directorios
+ let subDirectorios=fs.readdirSync(directorio); 
+    //Verifico que existan subdirectorios
+    if (subDirectorios.length > 0) {         
+        //Recorro c/u de los subdirectorios archivos por archivo
+        for (let indexSubDirectorio=0; indexSubDirectorio < subDirectorios.length; indexSubDirectorio++) { 
+         let subDirectorioActual=directorio+subDirectorios[indexSubDirectorio]+"/";     
+         let archivosSubDirectorio=fs.readdirSync(subDirectorioActual); 
+            //Verifico que el subdirectorio tenga archivos
+            if (archivosSubDirectorio.length) {
+                //Recorro archivo x archivo 
+                for (let indexArchivo=0; indexArchivo < archivosSubDirectorio.length; indexArchivo++) { 
+                 let archivoActual=subDirectorioActual+archivosSubDirectorio[indexArchivo];
+                 let fechaArchivo= String(fs.statSync(archivoActual).birthtime);
+                 let fechaCreacion = fechaArchivo.substring(0,15);                              
+                 //Defino un objeto para almacenar informacion
+                 var archivoStats = new Object();
+                 archivoStats.nombreArchivo=archivoActual;
+                 archivoStats.fechaCreacion= formatearFechas(fechaCreacion);
+                 //Inserto el objeto en mi array de archivos
+                 arrayArchivosXFecha.push(archivoStats);               
+                }
+            }
+        }
+    }
+
+ let arrayDiasFormato=[]; //array con los dias del mes con formato
+
+    //Recorro dia a dia el array de dias del mes y verifico las fechas de creacion
+    for (let i = 0; i < arrayDiasDelMes.length; i++) {
+     let contadorIndice=0;    
+     arrayDiasFormato.push(arrayDiasDelMes[i]);
+
+        //voy iterando sobre la fecha de todos los archivos..
+        for (var j = 0; j < arrayArchivosXFecha.length; j++) {
+         //Determino el dia de la fecha del array de fechas
+         let fechaArrayDias=arrayDiasDelMes[i];
+         //Guardo la fecha del archivo para comparar mejor
+         let fechaCreacionArchivo=moment(arrayArchivosXFecha[j].fechaCreacion).format('DD/MM/YYYY');
+
+            //Si el dia de creacion del archivo es la misma que el dia, incremento el contador del dia
+            if (fechaArrayDias == fechaCreacionArchivo) { 
+             contadorIndice++;
+            }
+        }
+     //Cargo el contador de ese dia en mi Array de cantidades
+     arrayContadorArchivosXDia.push(contadorIndice);
+    }
+
+ //Defino mi array final de datos
+ let arrayFinalArchivosXDia=[arrayDiasFormato,arrayContadorArchivosXDia];
+
+ return arrayFinalArchivosXDia;
 }
 
 
@@ -191,8 +275,26 @@ function generarCanvasXCantidadArchivos(directorios) {
         labels: names,
         datasets: [ { data: cants, backgroundColor: backgroundColors }]
        };
-    var canvas = new Chart(canvas, { type: 'bar', data: datosDirectorios});
+    //Defino los datos de mi canvas
+    var canvas = new Chart(canvas, 
+        {
+         type: 'bar',
+            data: {  
+              labels: names,          
+              datasets: [{
+                 label: "Documentos Generados por Persona",
+                 data: cants,
+                 backgroundColor: backgroundColors,
+                 borderColor: backgroundColors,             
+                 borderWidth: 1
+              }],
+              options: {responsive: true,maintainAspectRatio: false,showScale: false,indexAxis: 'y',} 
+            },                       
+        }
+    );
 }
+
+
 //Funcion que genera grafico por meses
 function generarCanvasXMeses(arrayCantXMeses) {    
  //Creo el grafico
@@ -200,24 +302,77 @@ function generarCanvasXMeses(arrayCantXMeses) {
  let meses= ["Enero","Febrero","Marzo","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
  let cants= [];
  let backgroundColors = [];
+
         for (let i=0; i<arrayCantXMeses.length; i++) {           
          cants.push(arrayCantXMeses[i]);
          backgroundColors.push(getRandomColor());
         };
-        const datosDirectorios = { 
-         labels: meses,
-         datasets: [ { data: cants, backgroundColor: backgroundColors }]
-         
+    
+    //Defino los datos de mi canvas
+    var canvas = new Chart(canvas, 
+        {
+         type: 'line',
+            data: {  
+              labels: meses,          
+              datasets: [{
+                 label: "Documentos Generados Anualmente",
+                 data: cants,
+                 backgroundColor: backgroundColors,
+                 borderColor: backgroundColors,             
+                 borderWidth: 1
+              }],
+              options: {responsive: true,maintainAspectRatio: false,showScale: false,indexAxis: 'y',} 
+            },                       
+        }
+    );    
+}
+
+function generarCanvasArchivosDuranteMes(arrayCantidadDeArchivosDiarios) {
+ //Creo el grafico
+ var canvas = document.getElementById("canvasArchivosMensual"); 
+ let dias= arrayCantidadDeArchivosDiarios[0];
+ let cants= arrayCantidadDeArchivosDiarios[1];
+ let backgroundColors = [];
+
+        for (let i=0; i< arrayCantidadDeArchivosDiarios.length; i++) {           
+         backgroundColors.push(getRandomColor());
         };
     
-    var canvas = new Chart(canvas, { type: 'line', data: datosDirectorios});
+    //Defino los datos de mi canvas
+    var canvas = new Chart(canvas, 
+        {
+         type: 'line',
+            data: {  
+              labels: dias,          
+              datasets: [{
+                 label: "Documentos generados en el dia",
+                 data: cants,
+                 backgroundColor: backgroundColors,
+                 borderColor: backgroundColors,             
+                 borderWidth: 1
+              }],
+              options: {responsive: true,maintainAspectRatio: false,showScale: false,indexAxis: 'y',} 
+            },                       
+        }
+    );    
+
+
 }
 
 //Obtengo datos estadisticos de los directorios
 let statsDirectorios=obtenerEstadisticasDirectorios(directorioRaiz);
 //Obtengo datos estadisticos por fecha de creacion de los archivos
 let arrayArchivosStats= obtenerDatosXFechas(directorioRaiz);
+//Obtengo los dias del corriente mes
+let arrayDiasMesCorriente=obtenerDiasDelMesActual();
+//Obtengo un array con la cantidad de archivos generados por dia del mes actual
+let arrayCantidadDeArchivosDiarios=obtenerArchivosCreadosEnMes(arrayDiasMesCorriente,directorioRaiz);
 
+console.log(arrayCantidadDeArchivosDiarios);
+
+
+//Genero los canvas
 generarCanvasTam(statsDirectorios); //Genero el Canvas por tamaño de archivos en disco
 generarCanvasXCantidadArchivos(statsDirectorios); //Genero canvas por cantidad de archivos
 generarCanvasXMeses(arrayArchivosStats); //Genero el canvas por cant de archivos por mes
+generarCanvasArchivosDuranteMes(arrayCantidadDeArchivosDiarios); //Generar el canvas de archivos del mes

@@ -35,9 +35,10 @@
 
         <!-- Columna de Datos Estadisticos -->
         <div class="col s6">
-          <center><h6 class="titulo">Metricas de Documentacion Generada</h6></center>        
+                
           <!-- Columna para Mostrar la cantidad de archivos de cada directorio -->
-          <div class="col s8">
+          <div class="col s12">
+            <center><h6 class="titulo">Metricas de Almacenamiento Personal</h6></center>  
             <ul class="collection with-header" id="contenedorDirectorios">
               <li class="collection-header blue lighten-2 white-text"><h6>Estadisticas de Uso por Persona</h6></li>
               <canvas id="canvasDirectoriosCantidadArchivos"></canvas>   
@@ -45,7 +46,8 @@
           </div>
           <!-- Columna para Mostrar la cantidad de archivos de cada directorio -->
           <!-- Columna para el tamaño de los directorios -->
-          <div class="col s4">
+          <div class="col s12">
+            <center><h6 class="titulo">Metricas Ocupacion en Disco</h6></center>  
             <ul class="collection with-header" id="contenedorDirectorios">
               <li class="collection-header blue lighten-2 white-text"><h6>Espacio en Disco</h6></li>
               <canvas id="canvasDirectoriosTam"></canvas>   
@@ -55,15 +57,37 @@
         </div>
         <!-- Columna de Datos Estadisticos -->
 
-        <!-- Columna de Datos Personales -->
+        <!-- Columna Estadisticas de Archivos -->
         <div class="col s6">
-          <center><h6 class="titulo">Metrica del Rendimiento durante el Año Actual</h6></center>     
-          <ul class="collection with-header" id="contenedorDirectorios">
-            <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el año</h6></li>
-            <canvas id="canvasDirectoriosxMeses"></canvas>   
-          </ul> 
+          
+          <!-- Columna de Archivos Generados Durante el Año -->
+          <div class="col s12">
+            <!-- Columna de Archivos Generados Durante el Año -->
+            <center><h6 class="titulo">Metrica del Rendimiento durante el Año Actual</h6></center>     
+            <ul class="collection with-header" id="contenedorDirectorios">
+             <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el año</h6></li>
+             <canvas id="canvasDirectoriosxMeses"></canvas>   
+            </ul> 
+          </div>
+          <!-- Columna de Archivos Generados Durante el Año -->
+
+          <!-- Columna de Archivos Mensuales -->
+          <div class="col s12">
+            <center><h6 class="titulo">Metrica del Rendimiento en los Ultimos 30 Dias</h6></center>     
+            <ul class="collection with-header" id="contenedorDirectorios">
+             <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el ultimo Mes</h6></li>
+             <canvas id="canvasArchivosMensual"></canvas>   
+            </ul> 
+          </div>
+          <!-- Columna de Archivos Mensuales -->
+          
         </div>
-        <!-- Columna de Datos Personales -->
+        <!-- Columna Estadisticas de Archivos -->
+        
+
+
+
+        
  
         
 
@@ -95,6 +119,7 @@
    <script src="../main.js"></script>
    <script src="../public/js/home.js"></script>
    <script src="../public/js/generarMenuLateral.js"></script>
+   
    <script src="../node_modules/chart.js/dist/Chart.js"></script>
    <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
    <!-- Librerias JavaScripts -->
