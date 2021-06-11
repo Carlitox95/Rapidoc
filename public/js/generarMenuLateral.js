@@ -40,7 +40,7 @@ function crearMenuPrincipal() {
  var liDatosApp=document.createElement("li");
  var aliDatosApp=document.createElement("a"); 
  aliDatosApp.innerHTML="<i class='material-icons left'>person</i> Registros Personales";
- aliDatosApp.setAttribute("href","#");
+ aliDatosApp.setAttribute("href","gestorPersonas.html");
  liDatosApp.appendChild(aliDatosApp);
  //Termino el enlace    
 

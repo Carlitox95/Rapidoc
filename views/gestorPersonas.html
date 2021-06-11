@@ -30,9 +30,130 @@
   
     <!-- Contenido Principal -->
      <main>
-        <div class="row">            
+        <div class="row"> 
+        <div class="separadorMain">            
                
-          
+        <!-- Caja de Registros Personales -->
+        <div class="col s4">
+          <ul class="collection with-header" id="listadoDocumentosDisponibles">
+           <li class="collection-header blue lighten-2 white-text"><h5>Buscador de Registros</h5></li>     
+           
+            <!-- Busqueda -->
+            <div class="input-field col s5">
+             <i class="material-icons prefix">search</i>
+             <input id="parametro" type="text" class="validate" placeholder="Busqueda">         
+            </div>
+            <div class="input-field col s4">    
+             <select class="browser-default" id="tipoBusqueda">
+             <option value="default" disabled selected>Tipo Busqueda</option>    
+             <option value="apellido">Apellido</option>
+             <option value="cuit">Cuit</option>
+             </select>
+            </div>
+            <div class="col s3">
+             <br>
+             <a onclick="buscarPersona();" class="waves-effect waves-light btn blue lighten-2 white-text">Buscar</a>
+            </div>
+            <!-- Busqueda -->
+          </ul>   
+          <!-- Listado de Personas Cargadas -->                
+          <div class="listadoPersonas">
+            <ul class="collection with-header" id="listadoPersonas">
+             <li class="collection-header blue lighten-2 white-text"><h5>Registros Personales</h5></li>
+            </ul>        
+          </div>       
+          <!-- Listado de Personas Cargadas -->
+        </div>
+        <!-- Caja de Registros Personales -->
+
+      
+        <!-- Datos de Formulario -->
+        <div class="col s8">  
+          <ul class="collection with-header">
+           <li class="collection-header blue lighten-2 white-text"><h5>Formularios</h5></li>
+           <br>
+           <!-- Datos Persona -->      
+            <div class="input-field col s4">
+             <i class="material-icons prefix">account_circle</i>
+             <input id="apellido" type="text" class="validate" placeholder="Apellido">
+             <label for="apellido">Apellido</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">account_circle</i>
+             <input id="nombre" type="text" class="validate" placeholder="Nombre">
+             <label for="nombre">Nombre</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">work</i>
+             <input id="cuit" type="text" class="validate" placeholder="Cuit">
+             <label for="cuit">Cuit</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">perm_contact_calendar</i>
+             <input id="dni" type="text" class="validate" placeholder="DNI">
+             <label for="dni">DNI</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">perm_contact_calendar</i>
+             <input id="nroTramite" type="text" class="validate" placeholder="Nro Tramite">
+             <label for="nroTramite">N° Tramite</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">phone</i>
+             <input id="telefono" type="text" class="validate" placeholder="Telefono">
+             <label for="telefono">Telefono</label>
+            </div>
+       
+            <div class="input-field col s6">
+             <i class="material-icons prefix">email</i>
+             <input id="mail" type="text" class="validate" placeholder="Mail">
+             <label for="mail">Mail</label>
+            </div>  
+            <div class="input-field col s6">
+             <i class="material-icons prefix">house</i>
+             <input id="direccion" type="text" class="validate" placeholder="Direccion">
+             <label for="direccion">Direccion</label>
+            </div> 
+            <!-- Datos Persona -->   
+        
+            <!-- Datos Empleador -->
+            <div class="input-field col s4">
+             <i class="material-icons prefix">account_circle</i>
+             <input id="apellidoEmpleador" type="text" class="validate" placeholder="Apellido del Empleador">
+             <label for="apellidoEmpleador">Empleador: Apellido</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">account_circle</i>
+             <input id="nombreEmpleador" type="text" class="validate" placeholder="Nombre del Empleador">
+             <label for="nombreEmpleador">Empleador: Nombre</label>
+            </div>
+            <div class="input-field col s4">
+             <i class="material-icons prefix">work</i>
+             <input id="cuitEmpleador" type="text" class="validate" placeholder="Cuit del Empleador">
+             <label for="cuitcuitEmpleador">Empleador: Cuit</label>
+            </div>
+            <!-- Datos Empleador -->
+          </ul>
+        </div>
+        <!-- Datos de Formulario -->         
+        
+
+
+        </div>
+        <!-- Botones Flotantes -->
+        <div class="col s2 offset-s10">
+          <br>
+          <a title="Registrar Nueva Persona" class="btn-floating btn-large waves-effect waves-light green darken-3" onclick="abrirCargaPersonas();">
+           <i class="material-icons">add</i>
+          </a>
+          <a title="Actualizar Datos Personales" class="btn-floating btn-large waves-effect waves-light btn blue darken-3" onclick="actualizarDatos();">
+           <i class="material-icons">update</i>
+          </a>
+          <a title="Eliminar Persona" class="btn-floating btn-large aves-effect waves-light btn  red accent-4" onclick="eliminarPersona();">
+           <i class="material-icons">delete</i>
+          </a>
+        <!-- Botones Flotantes -->        
+        </div>
         </div>
     </main>
     <!-- Contenido Principal-->
@@ -58,6 +179,7 @@
   
    <!-- Librerias JavaScripts -->
    <script src="../main.js"></script>
+   <script src="../public/js/gestorPersonas.js"></script>
    <script src="../public/js/generarMenuLateral.js"></script>
    <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
    <!-- Librerias JavaScripts -->
