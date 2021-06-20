@@ -13,6 +13,7 @@ main {
 .separadorMain {
  margin-top: 2%;
 }
+
 .logoHeader {
  padding-left: 20px;
  height:100px;
@@ -23,9 +24,14 @@ main {
  width: 20%;
 }
 
-.centrado{
- margin-left: 20%;
- margin-right: 20%;
+.imagenContenedor {
+ width:100%;
+ vertical-align: middle;
+}
+
+.centrado {
+ margin-left: 5%;
+ margin-right: 5%;
 }
 
 .titulo {
@@ -48,6 +54,10 @@ main {
 
 .oculto {
  display:none
+}
+
+.fondoCanvas {
+ background-color: white;
 }
 
 .listadoDirectorios {

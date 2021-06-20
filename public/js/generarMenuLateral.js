@@ -20,6 +20,13 @@ function crearMenuPrincipal() {
  liHome.appendChild(aliHome);
  //Termino el enlace
 
+ //Creo el enlace para accerder a las estadisticas
+ var liEstadisticas=document.createElement("li");
+ aliEstadisticas=document.createElement("a");
+ aliEstadisticas.innerHTML="<i class='material-icons left'>equalizer</i> Estadisticas";
+ aliEstadisticas.setAttribute("href","gestorEstadisticas.html");
+ liEstadisticas.appendChild(aliEstadisticas);
+
  //Creo el enlace para acceder a los formularios
  var liFormularios=document.createElement("li");
  var aliFormularios=document.createElement("a"); 
@@ -62,6 +69,7 @@ function crearMenuPrincipal() {
 
  //Inserto los elementos
  contenedorMenu.appendChild(liHome);
+ contenedorMenu.appendChild(liEstadisticas);
  contenedorMenu.appendChild(liFormularios);
  contenedorMenu.appendChild(liGestorArchivos);
  contenedorMenu.appendChild(liDatosApp);
@@ -83,6 +91,13 @@ function crearMenuPrincipalMobile() {
  aliHome.setAttribute("href","home.html");
  liHome.appendChild(aliHome);
  //Termino el enlace
+
+ //Creo el enlace para accerder a las estadisticas
+ var liEstadisticas=document.createElement("li");
+ aliEstadisticas=document.createElement("a");
+ aliEstadisticas.innerHTML="<i class='material-icons left'>equalizer</i> Estadisticas";
+ aliEstadisticas.setAttribute("href","gestorEstadisticas.html");
+ liEstadisticas.appendChild(aliEstadisticas);
    
  //Creo el enlace para acceder a los formularios
  var liFormularios=document.createElement("li");
@@ -96,7 +111,7 @@ function crearMenuPrincipalMobile() {
  var liGestorArchivos=document.createElement("li");
  var aliGestorArchivos=document.createElement("a"); 
  aliGestorArchivos.innerHTML="<i class='material-icons left'>folder</i> Gestor de Archivos";
- aliGestorArchivos.setAttribute("href","gestorDocumentos.html");
+ aliGestorArchivos.setAttribute("href","gestorArchivos.html");
  liGestorArchivos.appendChild(aliGestorArchivos);
  //Termino el enlace
    
@@ -104,7 +119,7 @@ function crearMenuPrincipalMobile() {
  var liDatosApp=document.createElement("li");
  var aliDatosApp=document.createElement("a"); 
  aliDatosApp.innerHTML="<i class='material-icons left'>person</i> Registros Personales";
- aliDatosApp.setAttribute("href","registroPersonal.html");
+ aliDatosApp.setAttribute("href","gestorPersonas.html");
  liDatosApp.appendChild(aliDatosApp);
  //Termino el enlace    
    
@@ -126,6 +141,7 @@ function crearMenuPrincipalMobile() {
    
  //Inserto los elementos en el nav mobile
  contenedorMenuMobile.appendChild(liHome);
+ contenedorMenuMobile.appendChild(liEstadisticas);
  contenedorMenuMobile.appendChild(liFormularios);
  contenedorMenuMobile.appendChild(liGestorArchivos);
  contenedorMenuMobile.appendChild(liDatosApp);

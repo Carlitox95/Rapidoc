@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"> 
+    <!-- Librerias CSS -->
+    <link rel="stylesheet" type="text/css" href="../public/css/estilos.css">
+    <link href="../node_modules/material-icons/iconfont/material-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/dist/css/materialize.css">
+    <!-- Librerias CSS -->
+    <title>RapiDoc</title>
+  </head>
+<body>
+
+    <!-- Header -->
+    <header> 
+        <!-- NAV -->
+        <nav>
+            <div class="nav-wrapper blue lighten-2">
+              <a id="logoUrl" href="#" class="brand-logo"><img class="logoHeader" src="../public/img/logo.png"></a> 
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> 
+              <ul id="nav" class="right hide-on-med-and-down"></ul>
+            </div>
+        </nav>
+        <!-- NAV -->
+        <!-- NAV Mobile -->
+        <ul class="sidenav" id="mobile-demo"></ul>
+        <!-- NAV Mobile -->
+    </header>
+    <!-- Header -->
+  
+    <!-- Contenido Principal -->
+     <main>
+      <div class="separadorMain"> 
+      <div class="row">    
+       <br>  
+        
+       
+        <div class="centrado">
+        <!-- Caja de Listados de Reportes -->
+        <ul class="collection with-header">
+           <li class="collection-header blue lighten-2 white-text"><h5>Metricas del Rendimiento de la Aplicacion</h5></li>
+            <li class="collection-item avatar">
+             <i class="material-icons circle green">insert_chart</i>
+             <span class="title">Metricas de Almacenamiento Personal</span>
+              <p>Estadisticas de Uso por Persona</p>
+              <a href="#!" onclick="mostrarMetrica('metricaAlmacenamientoPersonal');" class="secondary-content">
+               <i class="material-icons left">visibility</i>
+                <span id="metricaAlmacenamientoPersonalSpan">Mostrar<span>
+              </a>
+            </li>
+            <li class="collection-item avatar">
+             <i class="material-icons circle green">insert_chart</i>
+             <span class="title">Metrica del Rendimiento durante el Año Actual</span>
+              <p>Documentos generados en el año</p>
+              <a href="#!" onclick="mostrarMetrica('metricaRendimientoAnual');" class="secondary-content">
+               <i class="material-icons left">visibility</i>
+               <span id="metricaRendimientoAnualSpan">Mostrar<span>
+              </a>
+            </li>
+            <li class="collection-item avatar">
+             <i class="material-icons circle green">insert_chart</i>
+             <span class="title">Metricas Ocupacion en Disco</span>
+              <p>Espacio en Disco</p>
+              <a href="#!" onclick="mostrarMetrica('metricaOcupacionDisco');" class="secondary-content">
+               <i class="material-icons left">visibility</i>
+               <span id="metricaOcupacionDiscoSpan">Mostrar<span>
+              </a>
+            </li>
+            <li class="collection-item avatar">
+             <i class="material-icons circle green">insert_chart</i>
+             <span class="title">Metrica del Rendimiento en los Ultimos 30 Dias</span>
+              <p>Documentos generados en el ultimo Mes</p>
+              <a href="#!" onclick="mostrarMetrica('metricaRendimiento30Dias');" class="secondary-content">
+               <i class="material-icons left">visibility</i>
+               <span id="metricaRendimiento30DiasSpan">Mostrar<span>
+              </a>
+            </li>
+         </ul>
+        <!-- Caja de Listados de Reportes -->
+        </div>
+
+
+       
+        <!-- Columna para Mostrar la cantidad de archivos de cada directorio -->
+        <div class="centrado oculto" id="metricaAlmacenamientoPersonal">
+          <center><h6 class="titulo">Metricas de Almacenamiento Personal</h6></center>  
+          <ul class="collection with-header" id="contenedorDirectorios">
+           <li class="collection-header blue lighten-2 white-text"><h6>Estadisticas de Uso por Persona</h6></li>
+           <canvas class="fondoCanvas" id="canvasDirectoriosCantidadArchivos"></canvas>   
+          </ul> 
+        </div>
+        <!-- Columna para Mostrar la cantidad de archivos de cada directorio -->
+        <!-- Columna para el tamaño de los directorios -->
+        <div class="centrado oculto" id="metricaOcupacionDisco">
+          <center><h6 class="titulo">Metricas Ocupacion en Disco</h6></center>  
+          <ul class="collection with-header" id="contenedorDirectorios">
+           <li class="collection-header blue lighten-2 white-text"><h6>Espacio en Disco</h6></li>
+           <canvas class="fondoCanvas" id="canvasDirectoriosTam"></canvas>   
+          </ul>          
+        </div>
+        <!-- Columna para el tamaño de los directorios -->
+              
+          
+        <!-- Columna de Archivos Generados Durante el Año -->
+        <div class="centrado oculto" id="metricaRendimientoAnual">
+         <center><h6 class="titulo">Metrica del Rendimiento durante el Año Actual</h6></center>     
+          <ul class="collection with-header" id="contenedorDirectorios">
+           <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el año</h6></li>
+           <canvas class="fondoCanvas" id="canvasDirectoriosxMeses"></canvas>   
+          </ul> 
+        </div>
+        <!-- Columna de Archivos Generados Durante el Año -->
+
+        <!-- Columna de Archivos Mensuales -->
+        <div class="centrado oculto" id="metricaRendimiento30Dias">
+         <center><h6 class="titulo">Metrica del Rendimiento en los Ultimos 30 Dias</h6></center>     
+          <ul class="collection with-header" id="contenedorDirectorios">
+           <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el ultimo Mes</h6></li>
+           <canvas class="fondoCanvas" id="canvasArchivosMensual"></canvas>   
+          </ul> 
+        </div>
+        <!-- Columna de Archivos Mensuales -->
+          
+               
+
+    </div>
+      <!-- Boton de Volver -->
+      <center>
+        <a href="home.html" class="waves-effect waves-light btn-large blue lighten-2 white-text">
+          <i class="material-icons left">home</i>Volver al Home
+        </a>
+      </center>
+      <!-- Boton de Volver -->
+      <br>
+      
+      </div>
+    </main>
+    <!-- Contenido Principal-->
+    
+    <!-- Footer -->
+    <footer class="page-footer blue lighten-2">
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <h5 class="white-text">Rapidoc</h5>
+              <p class="grey-text text-lighten-4">Creación y Gestión de documentos de forma rápida y sencilla en formato digital.</p>
+            </div>            
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 RapiDoc 
+          <a class="grey-text text-lighten-4 right" href="#!">Mas Informacion</a>
+          </div>
+        </div>
+    </footer>
+    <!-- Footer-->
+  
+   <!-- Librerias JavaScripts -->
+   <script src="../main.js"></script>
+   <script src="../public/js/gestorEstadisticas.js"></script>
+   <script src="../public/js/generarMenuLateral.js"></script>
+   
+   <script src="../node_modules/chart.js/dist/Chart.js"></script>
+   <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+   <!-- Librerias JavaScripts -->
+
+
+  </body>
+</html>

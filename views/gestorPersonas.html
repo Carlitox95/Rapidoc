@@ -70,7 +70,7 @@
         <!-- Datos de Formulario -->
         <div class="col s8">  
           <ul class="collection with-header">
-           <li class="collection-header blue lighten-2 white-text"><h5>Formularios</h5></li>
+           <li class="collection-header blue lighten-2 white-text"><h5>Registro Personal</h5></li>
            <br>
            <!-- Datos Persona -->      
             <div class="input-field col s4">
@@ -157,6 +157,101 @@
         </div>
     </main>
     <!-- Contenido Principal-->
+
+
+
+    <!-- Modal -->
+    <div id="modal1" class="modal modalContorno col s12" data-target="modal1">
+    <div class="modal-content">
+     <h5 class="titulo">Datos Personales</h5>
+     <!-- Formulario de Datos -->
+    <form class="col s12">
+      <div class="row">  
+      <!-- Datos Persona -->    
+        <div class="input-field col s4">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="apellidoNew" type="text" class="validate" placeholder="Apellido">
+          <label for="apellidoNew">Apellido</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="nombreNew" type="text" class="validate" placeholder="Nombre">
+          <label for="nombreNew">Nombre</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">work</i>
+          <input id="cuitNew" type="text" class="validate" placeholder="Cuit">
+          <label for="cuitNew">Cuit</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">perm_contact_calendar</i>
+          <input id="dniNew" type="text" class="validate" placeholder="DNI">
+          <label for="dniNew">DNI</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">perm_contact_calendar</i>
+          <input id="nroTramiteNew" type="text" class="validate" placeholder="Nro Tramite">
+          <label for="nroTramiteNew">N° Tramite</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">phone</i>
+          <input id="telefonoNew" type="text" class="validate" placeholder="Telefono">
+          <label for="telefonoNew">Telefono</label>
+        </div>
+        
+        <div class="input-field col s4">
+          <i class="material-icons prefix">email</i>
+          <input id="mailNew" type="text" class="validate" placeholder="Mail">
+          <label for="mailNew">Mail</label>
+        </div>  
+        <div class="input-field col s4">
+          <i class="material-icons prefix">house</i>
+          <input id="direccionNew" type="text" class="validate" placeholder="Direccion">
+          <label for="direccionNew">Direccion</label>
+        </div> 
+        
+        <!-- Datos Persona -->   
+        
+        <!-- Datos Empleador -->
+       
+        <div class="input-field col s4">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="apellidoEmpleadorNew" type="text" class="validate" placeholder="Apellido del Empleador">
+          <label for="apellidoEmpleadorNew">Empleador: Apellido</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="nombreEmpleadorNew" type="text" class="validate" placeholder="Nombre del Empleador">
+          <label for="nombreEmpleadorNew">Empleador: Nombre</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">work</i>
+          <input id="cuitEmpleadorNew" type="text" class="validate" placeholder="Cuit del Empleador">
+          <label for="cuitcuitEmpleadorNew">Empleador: Cuit</label>
+        </div>
+        <!-- Datos Empleador -->
+     
+        
+      </div>
+    </form> 
+    <!-- Formulario de Datos -->  
+    </div>
+    <div class="modal-footer">
+      <center>
+        <a href="#!" class="waves-effect waves-light btn light-blue darken-2" id="botonLeido" onclick="nuevaPersona();">   
+         Registrar
+        </a>
+        <a href="#!" class="modal-close waves-effect waves-light btn light-blue darken-2">Cerrar</a>
+      </center>
+      <br>
+      <br>
+     
+    </div>
+    </div>
+    <!-- Modal -->
+
+
+
     
     <!-- Footer -->
     <footer class="page-footer blue lighten-2">

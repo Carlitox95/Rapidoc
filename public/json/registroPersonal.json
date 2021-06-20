@@ -11,5 +11,18 @@
         "apellidoEmpleador": "",
         "nombreEmpleador": "",
         "cuitEmpleador": "00-12345678-9"
+    },
+    {
+        "apellido": "Veron",
+        "nombre": "Carlos",
+        "dni": "38835218",
+        "nroTramite": "",
+        "cuit": "20-38835218-4",
+        "telefono": "2215460821",
+        "mail": "carlos.drsnak@gmail.com",
+        "direccion": "",
+        "apellidoEmpleador": "",
+        "nombreEmpleador": "",
+        "cuitEmpleador": "20-38835218-4"
     }
 ]
