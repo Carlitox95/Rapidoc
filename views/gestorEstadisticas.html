@@ -85,8 +85,13 @@
         <div class="centrado oculto" id="metricaAlmacenamientoPersonal">
           <center><h6 class="titulo">Metricas de Almacenamiento Personal</h6></center>  
           <ul class="collection with-header" id="contenedorDirectorios">
-           <li class="collection-header blue lighten-2 white-text"><h6>Estadisticas de Uso por Persona</h6></li>
-           <canvas class="fondoCanvas" id="canvasDirectoriosCantidadArchivos"></canvas>   
+           <li class="collection-header blue lighten-2 white-text"><h6 id="canvasDirectoriosCantidadArchivosTitulo">Estadisticas de Uso por Persona</h6></li>
+           <canvas class="fondoCanvas" id="canvasDirectoriosCantidadArchivos"></canvas>
+            <li class="collection-item blue lighten-3 white-text">
+              <a onclick="descargarPDF('canvasDirectoriosCantidadArchivos','landscape');" class="btn-large blue lighten-2 white-text btn-small">
+               <i class="material-icons left">cloud</i>Descargar Grafico como PDF
+              </a>
+            </li>   
           </ul> 
         </div>
         <!-- Columna para Mostrar la cantidad de archivos de cada directorio -->
@@ -94,8 +99,13 @@
         <div class="centrado oculto" id="metricaOcupacionDisco">
           <center><h6 class="titulo">Metricas Ocupacion en Disco</h6></center>  
           <ul class="collection with-header" id="contenedorDirectorios">
-           <li class="collection-header blue lighten-2 white-text"><h6>Espacio en Disco</h6></li>
+           <li class="collection-header blue lighten-2 white-text"><h6 id="canvasDirectoriosTamTitulo">Espacio en Disco</h6></li>
            <canvas class="fondoCanvas" id="canvasDirectoriosTam"></canvas>   
+            <li class="collection-item blue lighten-3 white-text">
+              <a onclick="descargarPDF('canvasDirectoriosTam','landscape');" class="btn-large blue lighten-2 white-text btn-small">
+               <i class="material-icons left">cloud</i>Descargar Grafico como PDF
+              </a>
+            </li>   
           </ul>          
         </div>
         <!-- Columna para el tamaño de los directorios -->
@@ -105,8 +115,13 @@
         <div class="centrado oculto" id="metricaRendimientoAnual">
          <center><h6 class="titulo">Metrica del Rendimiento durante el Año Actual</h6></center>     
           <ul class="collection with-header" id="contenedorDirectorios">
-           <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el año</h6></li>
-           <canvas class="fondoCanvas" id="canvasDirectoriosxMeses"></canvas>   
+           <li class="collection-header blue lighten-2 white-text"><h6 id="canvasDirectoriosxMesesTitulo">Documentos generados en el año</h6></li>
+           <canvas class="fondoCanvas" id="canvasDirectoriosxMeses"></canvas> 
+            <li class="collection-item blue lighten-3 white-text">
+              <a onclick="descargarPDF('canvasDirectoriosxMeses','landscape');" class="btn-large blue lighten-2 white-text btn-small">
+               <i class="material-icons left">cloud</i>Descargar Grafico como PDF
+              </a>
+            </li>  
           </ul> 
         </div>
         <!-- Columna de Archivos Generados Durante el Año -->
@@ -115,8 +130,13 @@
         <div class="centrado oculto" id="metricaRendimiento30Dias">
          <center><h6 class="titulo">Metrica del Rendimiento en los Ultimos 30 Dias</h6></center>     
           <ul class="collection with-header" id="contenedorDirectorios">
-           <li class="collection-header blue lighten-2 white-text"><h6>Documentos generados en el ultimo Mes</h6></li>
-           <canvas class="fondoCanvas" id="canvasArchivosMensual"></canvas>   
+           <li class="collection-header blue lighten-2 white-text"><h6 id="canvasArchivosMensualTitulo">Documentos generados en el ultimo Mes</h6></li>
+           <canvas class="fondoCanvas" id="canvasArchivosMensual"></canvas>  
+            <li class="collection-item blue lighten-3 white-text">
+              <a onclick="descargarPDF('canvasArchivosMensual','landscape');" class="btn-large blue lighten-2 white-text btn-small">
+               <i class="material-icons left">cloud</i>Descargar Grafico como PDF
+              </a>
+            </li> 
           </ul> 
         </div>
         <!-- Columna de Archivos Mensuales -->
@@ -160,7 +180,7 @@
    <script src="../main.js"></script>
    <script src="../public/js/gestorEstadisticas.js"></script>
    <script src="../public/js/generarMenuLateral.js"></script>
-   
+   <script src="../public/js/html2pdf.bundle.js"></script>
    <script src="../node_modules/chart.js/dist/Chart.js"></script>
    <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
    <!-- Librerias JavaScripts -->

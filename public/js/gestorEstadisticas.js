@@ -24,19 +24,36 @@ function mostrarMetrica(unaMetricaId) {
      //Cambio el mensaje del Spam que dice Mostrar/Ocultar
      document.getElementById(unaMetricaId+"Span").innerHTML="Mostrar";
     }
-
-
-
-
- //metricaAlmacenamientoPersonal
- //metricaRendimientoAnual
- //metricaOcupacionDisco
- //metricaRendimiento30Dias
-
-
 }
 
-
+//Funcion que me permite imprimir contenedores como PDF
+function descargarPDF(elementoHTML,orientacionPDF) {
+ //Obtengo la fecha actual
+ let date = new Date();
+ let fecha=date.toLocaleDateString();
+ //Obtengo el nombre del reporte
+ let nombreReporte=document.getElementById(elementoHTML+"Titulo").innerHTML;
+ //Obtengo el contenedor
+ var contenedor=document.getElementById(elementoHTML);         
+    //Completo las variables de renderizado del PDF
+    html2pdf().set({
+     margin: 1,
+     filename: 'Reporte_'+fecha+'_'+nombreReporte+'.pdf',
+     image: {
+         type: 'jpeg',
+         quality: 1
+        },
+        html2canvas: {
+         scale: 5, // A mayor escala, mejores gráficos, pero más peso
+         letterRendering: true,
+        },
+        jsPDF: {
+         unit: "in",
+         format: "a3",
+         orientation: orientacionPDF // landscape o portrait
+        }
+    }).from(contenedor).save().catch(err => console.log(err));
+}
 
 
 
