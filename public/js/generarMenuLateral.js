@@ -55,7 +55,7 @@ function crearMenuPrincipal() {
  var liConfigApp=document.createElement("li");
  var aliConfigApp=document.createElement("a"); 
  aliConfigApp.innerHTML="<i class='material-icons left'>brightness_high</i> Configuracion";
- aliConfigApp.setAttribute("href","#");
+ aliConfigApp.setAttribute("href","gestorConfiguracion.html");
  liConfigApp.appendChild(aliConfigApp);
  //Termino el enlace
 

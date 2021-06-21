@@ -30,15 +30,92 @@
   
     <!-- Contenido Principal -->
      <main>
-        <div class="row">            
-             
+        <div class="row">    
+         <br>
           
+          <!-- Opciones de Configuracion -->
+          <div class="centrado">
+            <ul class="collection with-header">
+             <li class="collection-header blue lighten-2 white-text"><h4>Configurar Parametros</h4></li>
+              <li class="collection-item">
+                <div>Exportar Registros Personales
+                  <a href="#!" class="secondary-content" onclick="activarConfig('exportarRegistrosPersonales');">
+                   <i class="material-icons left">import_export</i><span id="exportarRegistrosPersonalesSpan">Mostrar<span>
+                  </a>
+                </div>
+              </li>
+
+              <li class="collection-item">
+                <div>Importar Registros Personales
+                  <a href="#!" class="secondary-content" onclick="activarConfig('importarRegistrosPersonales');">
+                   <i class="material-icons left">import_export</i><span id="importarRegistrosPersonalesSpan">Mostrar<span>
+                  </a>
+                </div>
+              </li>
+
+
+    
+            </ul>
+          </div>
+          <!-- Opciones de Configuracion -->
+            
+          <!-- Caja de Configuraciones -->  
+          <div class="centrado">
+            <!-- Config de Exportar Registros Personales -->
+            <div id="exportarRegistrosPersonales" class="centrado oculto">
+              <ul class="collection with-header">
+                <li class="collection-header blue lighten-2 white-text"><h4>Exportar Registros Personales</h4></li> 
+                <div class="fondoCanvas">
+                  <br>
+                  <div class="row">
+                      <div class="col s8">
+                       <center>
+                       <p align="justify">Funcionalidad que nos permite exportar los registros personales de la Aplicacion, en
+                       un unico archivo en formato JSON. Este tipo de archivo podemos volver a importarlo para volver a 
+                       cargar los registros personales en un futuro en forma de Backup.
+                       </p>
+                       </center>
+                      </div>
+                      <div class="col s4">
+                        <center>
+                          <a href="#" onclick="exportarRegistroPersonal('JSON');" class="waves-effect waves-light btn-large blue lighten-2 white-text">
+                           <i class="material-icons left">file_download</i>Exportar JSON File
+                          </a>
+                        </center>
+                        <br>
+                        <center>
+                          <a href="#" onclick="exportarRegistroPersonal('CSV');" class="waves-effect waves-light btn-large blue lighten-2 white-text">
+                           <i class="material-icons left">file_download</i>Exportar CSV File
+                          </a>
+                        </center>
+                      </div>
+                  </div>
+                  
+                  
+                  <br>
+                </div>
+              </ul>
+            </div> 
+            <!-- Config de Exportar Registros Personales -->
+            
+            <!-- Config de Exportar Registros Personales -->
+            <div id="importarRegistrosPersonales" class="centrado oculto">
+              <ul class="collection with-header">
+                <li class="collection-header blue lighten-2 white-text"><h4>Importar Registros Personales</h4></li> 
+              </ul>
+            </div>
+            <!-- Config de Exportar Registros Personales -->
+
+
+          </div>
+          <!-- Caja de Configuraciones -->
+
 
         <!-- Boton de Volver -->
         <center>
           <a href="home.html" class="waves-effect waves-light btn-large blue lighten-2 white-text">
            <i class="material-icons left">home</i>Volver al Home
-           </a>
+          </a>
         </center>
         <!-- Boton de Volver -->
         
@@ -68,6 +145,7 @@
    <!-- Librerias JavaScripts -->
    <script src="../main.js"></script>
    <script src="../public/js/generarMenuLateral.js"></script>
+   <script src="../public/js/gestorConfiguracion.js"></script>
    <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
    <!-- Librerias JavaScripts -->
 
