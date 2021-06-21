@@ -15,6 +15,7 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 1920,
     height: 1080,
+    icon: path.join(__dirname, 'icon.ico'),
     webPreferences: {
       contextIsolation: false,
         nodeIntegration: true,
@@ -26,6 +27,8 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
+  win.setMenu(null)
+
 }
 
 app.whenReady().then(() => {

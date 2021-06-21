@@ -1,5 +1,18 @@
 [
     {
+        "apellido": "Orrino",
+        "nombre": "Ariel",
+        "dni": "xxxxxxxx",
+        "nroTramite": "",
+        "cuit": "xx-xxxxxxxx-x",
+        "telefono": "1166549045",
+        "mail": "arielorrino@gmail.com",
+        "direccion": "",
+        "apellidoEmpleador": "",
+        "nombreEmpleador": "Alan",
+        "cuitEmpleador": "Bruno"
+    },
+    {
         "apellido": "Testester",
         "nombre": "Usuario",
         "dni": "12345678",

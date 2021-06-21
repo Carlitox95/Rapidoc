@@ -40,8 +40,7 @@ function activarConfig(elementoHTMLConfig) {
 }
 
 //Funcion que me permite exportar los registros personales
-function exportarRegistroPersonal(modalidadExportacion) {
-    
+function exportarRegistroPersonal(modalidadExportacion) {    
     //Si se selecciono exportar como JSON
 	if (modalidadExportacion=="JSON") {
      //Exporto el JSON
@@ -57,6 +56,40 @@ function exportarRegistroPersonal(modalidadExportacion) {
  //Muestro un cartel informado que se ha exportado
  M.toast({html: 'Se ha exportado el registro personal'});
 }
+
+
+//Funcion para extraer la ruta de un archivo
+function extractFilename(path) {
+  if (path.substr(0, 12) == "C:\\fakepath\\")
+    return path.substr(12); // modern browser
+  var x;
+  x = path.lastIndexOf('/');
+  if (x >= 0) // Unix-based path
+    return path.substr(x+1);
+  x = path.lastIndexOf('\\');
+  if (x >= 0) // Windows-based path
+    return path.substr(x+1);
+  return path; // just the filename
+}
+
+//Funcion para importar los registros personales
+function importarRegistroPersonal() {
+	try {
+     //Obtengo la ruta del archivo seleccionado
+     let rutaArchivo=document.getElementById('importarArchivo').files[0].path;
+     //Voy a buscar a la ruta el archivo importado
+     let JSONimportado=require(rutaArchivo);
+     //Sobreescribo mi archivo de personas para guardar los cambios
+     fs.writeFileSync('public/json/registroPersonal.json', JSON.stringify(JSONimportado,null,4), 'utf8'); 
+     //Muestro un cartel informado que se ha importado un JSON File
+     M.toast({html: 'Se ha importado el nuevo registro personal'});
+    }
+    catch(err) {
+     //Muestro un cartel informado que hubo un error
+     M.toast({html: 'Se ha producido un error al importar el archivo ('+err.message+')'});
+    }
+}
+
 
 //Funcion que me permite exportar los registros personales como un JSON
 function exportToJsonFile(jsonData) {
