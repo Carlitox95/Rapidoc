@@ -38,7 +38,7 @@ function crearMenuPrincipal() {
  //Creo el enlace para acceder el gestor de archivos
  var liGestorArchivos=document.createElement("li");
  var aliGestorArchivos=document.createElement("a"); 
- aliGestorArchivos.innerHTML="<i class='material-icons left'>folder</i> Gestor de Archivos";
+ aliGestorArchivos.innerHTML="<i class='material-icons left'>folder</i> Archivos";
  aliGestorArchivos.setAttribute("href","gestorArchivos.html");
  liGestorArchivos.appendChild(aliGestorArchivos);
  //Termino el enlace
@@ -46,9 +46,17 @@ function crearMenuPrincipal() {
  //Creo el boton para acceder a los registros de datos personales
  var liDatosApp=document.createElement("li");
  var aliDatosApp=document.createElement("a"); 
- aliDatosApp.innerHTML="<i class='material-icons left'>person</i> Registros Personales";
+ aliDatosApp.innerHTML="<i class='material-icons left'>person</i> Registros";
  aliDatosApp.setAttribute("href","gestorPersonas.html");
  liDatosApp.appendChild(aliDatosApp);
+ //Termino el enlace    
+
+ //Creo el boton para acceder al seguimiento personal
+ var liSeguimientoApp=document.createElement("li");
+ var aliSeguimientoApp=document.createElement("a"); 
+ aliSeguimientoApp.innerHTML="<i class='material-icons left'>face</i> Seguimiento";
+ aliSeguimientoApp.setAttribute("href","gestorSeguimiento.html");
+ liSeguimientoApp.appendChild(aliSeguimientoApp);
  //Termino el enlace    
 
  //Creo el boton para acceder a las configuraciones del sistema
@@ -73,6 +81,7 @@ function crearMenuPrincipal() {
  contenedorMenu.appendChild(liFormularios);
  contenedorMenu.appendChild(liGestorArchivos);
  contenedorMenu.appendChild(liDatosApp);
+ contenedorMenu.appendChild(liSeguimientoApp);
  contenedorMenu.appendChild(liConfigApp);
  contenedorMenu.appendChild(liSalir); 
 }
@@ -110,7 +119,7 @@ function crearMenuPrincipalMobile() {
  //Creo el enlace para acceder el gestor de archivos
  var liGestorArchivos=document.createElement("li");
  var aliGestorArchivos=document.createElement("a"); 
- aliGestorArchivos.innerHTML="<i class='material-icons left'>folder</i> Gestor de Archivos";
+ aliGestorArchivos.innerHTML="<i class='material-icons left'>folder</i> Archivos";
  aliGestorArchivos.setAttribute("href","gestorArchivos.html");
  liGestorArchivos.appendChild(aliGestorArchivos);
  //Termino el enlace
@@ -118,10 +127,18 @@ function crearMenuPrincipalMobile() {
  //Creo el boton para acceder a los registros de datos personales
  var liDatosApp=document.createElement("li");
  var aliDatosApp=document.createElement("a"); 
- aliDatosApp.innerHTML="<i class='material-icons left'>person</i> Registros Personales";
+ aliDatosApp.innerHTML="<i class='material-icons left'>person</i> Registros";
  aliDatosApp.setAttribute("href","gestorPersonas.html");
  liDatosApp.appendChild(aliDatosApp);
- //Termino el enlace    
+ //Termino el enlace  
+
+ //Creo el boton para acceder al seguimiento personal
+ var liSeguimientoApp=document.createElement("li");
+ var aliSeguimientoApp=document.createElement("a"); 
+ aliSeguimientoApp.innerHTML="<i class='material-icons left'>face</i> Seguimiento";
+ aliSeguimientoApp.setAttribute("href","gestorSeguimiento.html");
+ liSeguimientoApp.appendChild(aliSeguimientoApp);
+ //Termino el enlace     
    
  //Creo el boton para acceder a las configuraciones del sistema
  var liConfigApp=document.createElement("li");
@@ -146,6 +163,7 @@ function crearMenuPrincipalMobile() {
  contenedorMenuMobile.appendChild(liGestorArchivos);
  contenedorMenuMobile.appendChild(liDatosApp);
  contenedorMenuMobile.appendChild(liConfigApp);
+ contenedorMenuMobile.appendChild(liSeguimientoApp);
  contenedorMenuMobile.appendChild(liSalir);
 }
 

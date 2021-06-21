@@ -9,12 +9,15 @@ hound = require('hound') //Modulo para manejar los eventos de observar directori
 require('dotenv').config({path: __dirname + '/.env'}) //Modulo para manejar variables globales
 
 
-
 //Creamos pantalla principal
 function createWindow () {
   const win = new BrowserWindow({
     width: 1920,
     height: 1080,
+    frame: true,
+    //titleBarStyle: "hidden", // add this line
+
+    transparent: false,
     icon: path.join(__dirname, 'icon.ico'),
     webPreferences: {
       contextIsolation: false,

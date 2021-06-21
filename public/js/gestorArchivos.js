@@ -1,5 +1,3 @@
-
-
 //Declaro la funcion que me permite recorrer directorios
 const fs = require('fs');
 const fsUtils = require("nodejs-fs-utils");
