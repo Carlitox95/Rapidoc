@@ -30,7 +30,7 @@ function crearMenuPrincipal() {
  //Creo el enlace para acceder a los formularios
  var liFormularios=document.createElement("li");
  var aliFormularios=document.createElement("a"); 
- aliFormularios.innerHTML="<i class='material-icons left'>edit</i> Formularios";
+ aliFormularios.innerHTML="<i class='material-icons left'>edit</i> Documentos";
  aliFormularios.setAttribute("href","gestorDocumentos.html");
  liFormularios.appendChild(aliFormularios);
  //Termino el enlace
@@ -111,7 +111,7 @@ function crearMenuPrincipalMobile() {
  //Creo el enlace para acceder a los formularios
  var liFormularios=document.createElement("li");
  var aliFormularios=document.createElement("a"); 
- aliFormularios.innerHTML="<i class='material-icons left'>edit</i> Formularios";
+ aliFormularios.innerHTML="<i class='material-icons left'>edit</i> Documentos";
  aliFormularios.setAttribute("href","gestorDocumentos.html");
  liFormularios.appendChild(aliFormularios);
  //Termino el enlace

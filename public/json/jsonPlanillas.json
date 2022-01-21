@@ -1,0 +1,9 @@
+[
+  {
+   "titulo": "Planilla Excel - RPA",
+   "categoria": "EXCEL",
+   "detalle": " Excel Detalles de los ultimos 12 meses Remunerados", 
+   "vista": "../views/lpanillaRPA.html",   
+   "codigoFormulario":"PlanillaRPA",
+   }
+]

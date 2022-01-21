@@ -1,5 +1,31 @@
 [
     {
+        "apellido": "Galuk",
+        "nombre": "Nora",
+        "dni": "14576198",
+        "nroTramite": "",
+        "cuit": "27145761986",
+        "telefono": "",
+        "mail": "",
+        "direccion": "",
+        "apellidoEmpleador": "Maric",
+        "nombreEmpleador": "Frida",
+        "cuitEmpleador": "27100781706"
+    },
+    {
+        "apellido": "Gonzalez",
+        "nombre": "Marisa Silvia",
+        "dni": "14576456",
+        "nroTramite": "",
+        "cuit": "23-14576456-4",
+        "telefono": "",
+        "mail": "",
+        "direccion": "",
+        "apellidoEmpleador": "Atencio",
+        "nombreEmpleador": "Sergio Walter",
+        "cuitEmpleador": "23-26194094-9"
+    },
+    {
         "apellido": "Orrino",
         "nombre": "Ariel",
         "dni": "xxxxxxxx",
@@ -37,5 +63,18 @@
         "apellidoEmpleador": "",
         "nombreEmpleador": "",
         "cuitEmpleador": "20-38835218-4"
+    },
+    {
+        "apellido": "Sguir",
+        "nombre": "Silvia Monica",
+        "dni": "14576048",
+        "nroTramite": "",
+        "cuit": "27-14576048-3",
+        "telefono": "",
+        "mail": "",
+        "direccion": "",
+        "apellidoEmpleador": "Fajre",
+        "nombreEmpleador": "Sonia Olga",
+        "cuitEmpleador": "27-16978473-1"
     }
 ]
