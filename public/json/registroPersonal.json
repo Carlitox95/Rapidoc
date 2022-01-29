@@ -39,6 +39,32 @@
         "cuitEmpleador": "Bruno"
     },
     {
+        "apellido": "Palavecino",
+        "nombre": "Enilsen",
+        "dni": "14770220",
+        "nroTramite": "",
+        "cuit": "27-14770220-0",
+        "telefono": "",
+        "mail": "",
+        "direccion": "",
+        "apellidoEmpleador": "Saravi",
+        "nombreEmpleador": "Maria del Carmen",
+        "cuitEmpleador": "27-05607156-9"
+    },
+    {
+        "apellido": "Sguir",
+        "nombre": "Silvia Monica",
+        "dni": "14576048",
+        "nroTramite": "",
+        "cuit": "27-14576048-3",
+        "telefono": "",
+        "mail": "",
+        "direccion": "",
+        "apellidoEmpleador": "Fajre",
+        "nombreEmpleador": "Sonia Olga",
+        "cuitEmpleador": "27-16978473-1"
+    },
+    {
         "apellido": "Testester",
         "nombre": "Usuario",
         "dni": "12345678",
@@ -63,18 +89,5 @@
         "apellidoEmpleador": "",
         "nombreEmpleador": "",
         "cuitEmpleador": "20-38835218-4"
-    },
-    {
-        "apellido": "Sguir",
-        "nombre": "Silvia Monica",
-        "dni": "14576048",
-        "nroTramite": "",
-        "cuit": "27-14576048-3",
-        "telefono": "",
-        "mail": "",
-        "direccion": "",
-        "apellidoEmpleador": "Fajre",
-        "nombreEmpleador": "Sonia Olga",
-        "cuitEmpleador": "27-16978473-1"
     }
 ]
