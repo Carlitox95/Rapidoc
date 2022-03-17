@@ -109,3 +109,8 @@ main {
   .input-field .prefix.active {
     color: #000;
   }
+
+.modal {
+ width: 70% !important;
+ max-width: 90% !important;
+}

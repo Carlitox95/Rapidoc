@@ -65,19 +65,6 @@
         "cuitEmpleador": "27-16978473-1"
     },
     {
-        "apellido": "Testester",
-        "nombre": "Usuario",
-        "dni": "12345678",
-        "nroTramite": "",
-        "cuit": "00-12345678-9",
-        "telefono": "",
-        "mail": "test@test.com",
-        "direccion": "",
-        "apellidoEmpleador": "",
-        "nombreEmpleador": "",
-        "cuitEmpleador": "00-12345678-9"
-    },
-    {
         "apellido": "Veron",
         "nombre": "Carlos",
         "dni": "38835218",
